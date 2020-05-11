@@ -23,15 +23,15 @@ public abstract class Cuenta {
     }
 
     public String generarId(){
-        //Variables para Generar el ID de Forma Aleatoria//
+        //Variables para Generar el ID de Forma Aleatoria
         Random aleatorio = new Random();
         String alfa = "ABCDEFGHIJKLMNOPQRSTVWXYZ";
-        String cadena = "";    //Inicializamos la Variable//
+        String cadena = "";    //Inicializamos la Variable
         int numero;
         int forma;
-        //Método para el Cálculo de Código//
+        //Método para el Cálculo de Código
         forma=(int)(aleatorio.nextDouble() * alfa.length()-1+0);
-        //Definimos la cantidad máxima de números aleatorios (99) y sumamos 100 para mantener 3 números cada vez//
+        //Definimos la cantidad máxima de números aleatorios (99) y sumamos 100 para mantener 3 números cada vez
         numero=(int)(aleatorio.nextDouble() * 99+100);
         cadena=cadena+alfa.charAt(forma)+numero;
         return cadena;
