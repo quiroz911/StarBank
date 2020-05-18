@@ -19,6 +19,10 @@ public abstract class Cliente {
         this.cuenta = cuenta;
     }
 
+    public Cliente() {
+
+    }
+
     public String getId() {
         return id;
     }

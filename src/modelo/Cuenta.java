@@ -22,7 +22,7 @@ public abstract class Cuenta {
         System.out.println(this.id);
     }
 
-    public String generarId(){
+    public static String generarId(){
         //Variables para Generar el ID de Forma Aleatoria
         Random aleatorio = new Random();
         String alfa = "ABCDEFGHIJKLMNOPQRSTVWXYZ";
