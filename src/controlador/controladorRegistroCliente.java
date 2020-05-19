@@ -54,7 +54,7 @@ public class controladorRegistroCliente {
         clientePN.setOcupacion(txtOcupacionPN.getText());
         System.out.println("funciona");
 
-        serializador.serializarOP(clientePN, "registro_clientes.json");
+        serializador.serializarOP(clientePN, "registro_clientesPersonaNatural.json");
     }
 
     public void btnGuardarRegistroE_action(ActionEvent actionEvent) {
@@ -68,6 +68,6 @@ public class controladorRegistroCliente {
         empresa.setSeccionComerial(txtSectorComercial.getText());
 
 
-        serializador.serializarOP(empresa, "registro_clientes.json");
+        serializador.serializarOP(empresa, "registro_clientesEmpresa.json");
     }
 }

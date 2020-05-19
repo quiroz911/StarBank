@@ -29,8 +29,6 @@ public class Serializador {
                 json+= line;
             }
 
-        } catch (FileNotFoundException ex) {
-            System.out.println(ex.getMessage());
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
@@ -49,10 +47,53 @@ public class Serializador {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo))) {
             bw.write(json);
 
-        } catch (FileNotFoundException ex) {
-            System.out.println(ex.getMessage());
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
     }
+
+
+    public PersonaNatural[] deserializarPersonaNatural(){
+        Gson gson = new GsonBuilder().disableHtmlEscaping()
+                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                .setPrettyPrinting()
+                .serializeNulls()
+                .create();
+        String json = "";
+
+        try (BufferedReader br = new BufferedReader(new FileReader("registro_clientesPersonaNatural.json"))){
+            String line;
+            while ((line = br.readLine()) != null) {
+                json+= line;
+            }
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return gson.fromJson(json, PersonaNatural[].class);
+    }
+
+    public Empresa[] deserializarEmpresa(){
+        Gson gson = new GsonBuilder().disableHtmlEscaping()
+                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                .setPrettyPrinting()
+                .serializeNulls()
+                .create();
+        String json = "";
+
+        try (BufferedReader br = new BufferedReader(new FileReader("registro_clientesEmpresa.json"))){
+            String line;
+            while ((line = br.readLine()) != null) {
+                json+= line;
+            }
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return gson.fromJson(json, Empresa[].class);
+    }
+
+
 }
