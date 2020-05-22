@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.controladorRegistroCliente">
    <children>
-      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TabPane prefHeight="200.0" prefWidth="200.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
           <Tab text="Persona natural">
             <content>
@@ -33,7 +33,7 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label text="Id" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                              <Label text="ID" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                  <font>
                                     <Font size="22.0" />
                                  </font>
@@ -43,17 +43,17 @@
                                     <Font size="22.0" />
                                  </font>
                               </Label>
-                              <Label text="Telefono" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                              <Label text="Teléfono" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                  <font>
                                     <Font size="22.0" />
                                  </font>
                               </Label>
-                              <Label text="Direccion" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                              <Label text="Dirección" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                                  <font>
                                     <Font size="22.0" />
                                  </font>
                               </Label>
-                              <Label text="Ocupacion" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                              <Label text="Ocupación" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                                  <font>
                                     <Font size="22.0" />
                                  </font>
@@ -100,7 +100,7 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Label text="Id" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                              <Label text="ID" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                  <font>
                                     <Font size="22.0" />
                                  </font>
@@ -110,22 +110,22 @@
                                     <Font size="22.0" />
                                  </font>
                               </Label>
-                              <Label text="Telefono" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                              <Label text="Teléfono" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                  <font>
                                     <Font size="22.0" />
                                  </font>
                               </Label>
-                              <Label text="Direccion" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                              <Label text="Dirección" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                                  <font>
                                     <Font size="22.0" />
                                  </font>
                               </Label>
-                              <Label text="Ocupacion" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                              <Label text="Ocupación" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                                  <font>
                                     <Font size="22.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="txtIdEmp" prefHeight="25.0" prefWidth="336.0" GridPane.columnIndex="1" />
+                              <TextField fx:id="txtIdEmp" prefHeight="11.0" prefWidth="266.0" GridPane.columnIndex="1" />
                               <TextField fx:id="txtNombreEmp" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <TextField fx:id="txtTelefonoEmp" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <TextField fx:id="txtDireccionEmp" GridPane.columnIndex="1" GridPane.rowIndex="3" />

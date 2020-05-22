@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Type;
 
 public class Serializador {
 
@@ -51,7 +52,6 @@ public class Serializador {
             System.out.println(ex.getMessage());
         }
     }
-
 
     public PersonaNatural[] deserializarPersonaNatural(){
         Gson gson = new GsonBuilder().disableHtmlEscaping()
@@ -95,5 +95,68 @@ public class Serializador {
         return gson.fromJson(json, Empresa[].class);
     }
 
+    public CuentaAhorros[] deserializarCuentaAhorros(){
+        Gson gson = new GsonBuilder().disableHtmlEscaping()
+                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                .setPrettyPrinting()
+                .serializeNulls()
+                .create();
+        String json = "";
+
+        try (BufferedReader br = new BufferedReader(new FileReader("registro_cuentasAhorros.json"))){
+            String line;
+            while ((line = br.readLine()) != null) {
+                json+= line;
+            }
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return gson.fromJson(json, CuentaAhorros[].class);
+    }
+
+    public CuentaCorriente[] deserializarCuentaCorriente(){
+        Gson gson = new GsonBuilder().disableHtmlEscaping()
+                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                .setPrettyPrinting()
+                .serializeNulls()
+                .create();
+        String json = "";
+
+        try (BufferedReader br = new BufferedReader(new FileReader("registro_cuentaCorriente.json"))){
+            String line;
+            while ((line = br.readLine()) != null) {
+                json+= line;
+            }
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return gson.fromJson(json, CuentaCorriente[].class);
+    }
+
+    //intento fallido de deserializador genérico
+    public Object[] deserializarOP(String archivo, Class clase){
+        Gson gson = new GsonBuilder().disableHtmlEscaping()
+                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                .setPrettyPrinting()
+                .serializeNulls()
+                .create();
+        String json = "";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))){
+            String line;
+            while ((line = br.readLine()) != null) {
+                json+= line;
+            }
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return gson.fromJson(json, (Type) clase);
+    }
 
 }

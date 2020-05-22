@@ -18,10 +18,10 @@ public class controladorMenuCajero {
 
     //action de botón Registrar Cliente
     public void abrirRegistrarCliente_action(ActionEvent actionEvent) throws IOException {
-        try {
-            AnchorPane registrarCliente = FXMLLoader.load(getClass().getResource("/vista/registroCliente.fxml"));
-            menu.setCenter(registrarCliente);
-        } catch (Exception e) {
+            try {
+                AnchorPane registrarCliente = FXMLLoader.load(getClass().getResource("/vista/registroCliente.fxml"));
+                menu.setCenter(registrarCliente);
+            } catch (Exception e) {
             e.printStackTrace();
         }
     }

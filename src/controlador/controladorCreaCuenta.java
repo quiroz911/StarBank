@@ -59,7 +59,10 @@ public class controladorCreaCuenta {
             cuentaCorriente.setSaldo(20000);
             cuentaCorriente.setEstado(true);
             cuentaCorriente.setId(labelCodigo.getText());
+
             serializador.serializarOP(cuentaCorriente, "registro_cuentasCorriente.json");
+
+            btnLimpiarRegistro_action(actionEvent);
         }
     }
 }

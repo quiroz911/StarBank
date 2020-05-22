@@ -1,0 +1,18 @@
+[{
+  "InteresMensual": 0.0,
+  "Id": "Y172",
+  "Cliente": {
+    "Id": "1234",
+    "Nombre": "asd",
+    "Telefono": "asd",
+    "Ocupacion": "asd",
+    "Direccion": "asd",
+    "EstaSuscrito": false,
+    "Cuenta": null
+  },
+  "Saldo": 20000.0,
+  "Estado": true,
+  "Sucursal": null,
+  "Operaciones": null,
+  "CobroRetiro": 0.02
+}]
