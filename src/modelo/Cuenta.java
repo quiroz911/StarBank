@@ -3,7 +3,7 @@ package modelo;
 import javax.swing.*;
 import java.util.Random;
 
-public abstract class Cuenta {
+public class Cuenta {
     protected String id;
     protected Cliente cliente;
     protected double saldo;

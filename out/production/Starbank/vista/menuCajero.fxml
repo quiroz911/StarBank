@@ -15,14 +15,11 @@
           <Menu mnemonicParsing="false" text="Cliente">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#abrirRegistrarCliente_action" text="Registrar " />
-                  <MenuItem mnemonicParsing="false" text="Verificar " />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Cuenta">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#abrirCrearCuenta_action" text="Crear" />
-                  <MenuItem mnemonicParsing="false" text="Activar " />
-                  <MenuItem mnemonicParsing="false" text="Desactivar " />
             </items>
           </Menu>
         </menus>

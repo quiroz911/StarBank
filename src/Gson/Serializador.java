@@ -16,7 +16,7 @@ import java.lang.reflect.Type;
 public class Serializador {
 
     //nombre del archivo en el cual se realizará el proceso de serializado. Es necesario indicarlo cada vez que se quiere serializar
-    public void serializarOP(Object obj, String archivo) {
+    public static void serializarOP(Object obj, String archivo) {
         Gson gson = new GsonBuilder().disableHtmlEscaping()
                 .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
                 .setPrettyPrinting()
@@ -53,92 +53,8 @@ public class Serializador {
         }
     }
 
-    public PersonaNatural[] deserializarPersonaNatural(){
-        Gson gson = new GsonBuilder().disableHtmlEscaping()
-                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
-                .setPrettyPrinting()
-                .serializeNulls()
-                .create();
-        String json = "";
-
-        try (BufferedReader br = new BufferedReader(new FileReader("registro_clientesPersonaNatural.json"))){
-            String line;
-            while ((line = br.readLine()) != null) {
-                json+= line;
-            }
-
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        return gson.fromJson(json, PersonaNatural[].class);
-    }
-
-    public Empresa[] deserializarEmpresa(){
-        Gson gson = new GsonBuilder().disableHtmlEscaping()
-                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
-                .setPrettyPrinting()
-                .serializeNulls()
-                .create();
-        String json = "";
-
-        try (BufferedReader br = new BufferedReader(new FileReader("registro_clientesEmpresa.json"))){
-            String line;
-            while ((line = br.readLine()) != null) {
-                json+= line;
-            }
-
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        return gson.fromJson(json, Empresa[].class);
-    }
-
-    public CuentaAhorros[] deserializarCuentaAhorros(){
-        Gson gson = new GsonBuilder().disableHtmlEscaping()
-                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
-                .setPrettyPrinting()
-                .serializeNulls()
-                .create();
-        String json = "";
-
-        try (BufferedReader br = new BufferedReader(new FileReader("registro_cuentasAhorros.json"))){
-            String line;
-            while ((line = br.readLine()) != null) {
-                json+= line;
-            }
-
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        return gson.fromJson(json, CuentaAhorros[].class);
-    }
-
-    public CuentaCorriente[] deserializarCuentaCorriente(){
-        Gson gson = new GsonBuilder().disableHtmlEscaping()
-                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
-                .setPrettyPrinting()
-                .serializeNulls()
-                .create();
-        String json = "";
-
-        try (BufferedReader br = new BufferedReader(new FileReader("registro_cuentaCorriente.json"))){
-            String line;
-            while ((line = br.readLine()) != null) {
-                json+= line;
-            }
-
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        return gson.fromJson(json, CuentaCorriente[].class);
-    }
-
-    //intento fallido de deserializador genérico
-    public Object[] deserializarOP(String archivo, Class clase){
+    //Nombre del archivo en el cual se realizará el proceso de deserializado y la clase que se retornará
+    public static Object[] deserializarOP(String archivo, Type clase){
         Gson gson = new GsonBuilder().disableHtmlEscaping()
                 .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
                 .setPrettyPrinting()
@@ -156,7 +72,7 @@ public class Serializador {
             System.out.println(ex.getMessage());
         }
 
-        return gson.fromJson(json, (Type) clase);
+        return gson.fromJson(json, clase);
     }
 
 }

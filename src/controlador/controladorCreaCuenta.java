@@ -7,15 +7,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import modelo.Cajero;
 import modelo.Cuenta;
 import modelo.CuentaAhorros;
 import modelo.CuentaCorriente;
 
 public class controladorCreaCuenta {
 
-    Serializador serializador = new Serializador();
-    CuentaAhorros cuentaAhorros = new CuentaAhorros();
-    CuentaCorriente cuentaCorriente = new CuentaCorriente();
+    Cajero cajero = new Cajero();
 
     @FXML
     Label labelCodigo;
@@ -44,24 +43,32 @@ public class controladorCreaCuenta {
 
     public void BtnCrearCuenta_action(ActionEvent actionEvent) {
         if(RdBtnAhorros.isSelected()){
+            CuentaAhorros cuentaAhorros = new CuentaAhorros();
+
             //Se necesita hacer uso del mediador para encontrar el cliente que tiene el respectivo Id ingresado por el usuario. Notificarle si no existe
             cuentaAhorros.setCliente(Mediador.retornaCliente(txtIdTitular.getText()));
             cuentaAhorros.setSaldo(20000);
             cuentaAhorros.setEstado(true);
             cuentaAhorros.setId(labelCodigo.getText());
 
-            serializador.serializarOP(cuentaAhorros, "registro_cuentasAhorros.json");
+            //el cajero es el encargado de crear cuentas
+            cajero.crearCuenta(cuentaAhorros);
 
+            //se limpian los campos
             btnLimpiarRegistro_action(actionEvent);
         }
         else{
+            CuentaCorriente cuentaCorriente = new CuentaCorriente();
+
             cuentaCorriente.setCliente(Mediador.retornaCliente(txtIdTitular.getText()));
             cuentaCorriente.setSaldo(20000);
             cuentaCorriente.setEstado(true);
             cuentaCorriente.setId(labelCodigo.getText());
 
-            serializador.serializarOP(cuentaCorriente, "registro_cuentasCorriente.json");
+            //el cajero es el encargado de crear cuentas
+            cajero.crearCuenta(cuentaCorriente);
 
+            //se limpian los campos
             btnLimpiarRegistro_action(actionEvent);
         }
     }

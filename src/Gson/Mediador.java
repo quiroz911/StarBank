@@ -1,29 +1,17 @@
 package Gson;
 
 import modelo.Cliente;
-import modelo.Empresa;
-import modelo.PersonaNatural;
 
 public class Mediador {
 
     public static Cliente retornaCliente(String id){
-        Serializador serializador = new Serializador();
-        PersonaNatural[] personasNaturales = serializador.deserializarPersonaNatural();
-        Empresa[] empresas = serializador.deserializarEmpresa();
+        Cliente[] clientes = (Cliente[]) Serializador.deserializarOP("registro_clientes.json", Cliente[].class);
+        //ArrayList<Cliente> clientes = new ArrayList<Cliente>(Arrays.asList((Cliente[]) Serializador.deserializarOP("registro_clientes.json", Cliente[].class)));
 
-        //se recorren primero las personas naturales y luego las empresas
-        if(personasNaturales!=null) {
-            for (Cliente clienteRecorrido : personasNaturales) {
+        if(clientes!=null) {
+            for (Cliente clienteRecorrido :  clientes) {
                 if (clienteRecorrido.getId().equals(id)) {
-                    return clienteRecorrido;
-                }
-            }
-        }
-
-        if(empresas!=null) {
-            for (Cliente clienteRecorrido : empresas) {
-                if (clienteRecorrido.getId().equals(id)) {
-                    return clienteRecorrido;
+                    return (Cliente) clienteRecorrido;
                 }
             }
         }
