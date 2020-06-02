@@ -22,4 +22,17 @@ public class Controller {
             primaryStage.show();
 
     }
+
+    public void abrirMenuUsuario_action(ActionEvent actionEvent) throws IOException {
+
+        Parent root1 = FXMLLoader.load(getClass().getResource("/vista/menuUsuario.fxml"));
+
+        Stage primaryStage1 = new Stage();
+
+        primaryStage1.setTitle("Menu Cajero");
+        primaryStage1.setScene(new Scene(root1));
+        primaryStage1.show();
+
+    }
+
 }

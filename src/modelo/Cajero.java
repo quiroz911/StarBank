@@ -15,7 +15,15 @@ public class Cajero {
     public void activarcuenta(){
 
     }
-    public void verificarCliente(){
-
+    public boolean verificarCliente(String id){
+        Cliente[] clientes = (Cliente[]) Serializador.deserializarOP("registro_clientes.json", Cliente[].class);
+        if(clientes!=null) {
+            for (Cliente clienteRecorrido : clientes) {
+                if (clienteRecorrido.getId().equals(id)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

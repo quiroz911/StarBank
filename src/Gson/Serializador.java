@@ -75,4 +75,22 @@ public class Serializador {
         return gson.fromJson(json, clase);
     }
 
+    public static void actualizarJson(Object[] obj, String archivo){
+        Gson gson = new GsonBuilder().disableHtmlEscaping()
+                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                .setPrettyPrinting()
+                .serializeNulls()
+                .create();
+        String json = "";
+
+        json = gson.toJson(obj);
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo))) {
+            bw.write(json);
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
 }

@@ -54,7 +54,7 @@
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="95.0" text="Usuario" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <Button mnemonicParsing="false" onAction="#abrirMenuUsuario_action" prefHeight="37.0" prefWidth="95.0" text="Usuario" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <font>
                         <Font size="17.0" />
                      </font>

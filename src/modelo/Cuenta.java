@@ -109,7 +109,12 @@ public class Cuenta {
             return 0;
         }
         saldo = saldo - cantARetirar - cantARetirar*cobroRetiro;
+        JOptionPane.showMessageDialog(null, "retiro exitoso");
         return cantARetirar*cobroRetiro;
+    }
+
+    public void consignar(double cantAConsignar){
+        saldo = saldo + cantAConsignar;
     }
 
     public void desactivarCuenta(boolean retirar, Cuenta cuentaStarBank){
@@ -121,6 +126,7 @@ public class Cuenta {
         }
 
     }
+
 
 
 
