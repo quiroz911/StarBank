@@ -7,4 +7,7 @@ public class CuentaCorriente extends Cuenta {
         cobroRetiro = 0.017;
     }
 
+    public CuentaCorriente() {
+        cobroRetiro = 0.017;
+    }
 }

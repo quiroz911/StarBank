@@ -1,0 +1,17 @@
+[
+  {
+    "Id": "A000",
+    "Cliente": {
+      "Id": "000",
+      "Nombre": "StarbankAccount",
+      "Telefono": "000",
+      "Ocupacion": "000",
+      "Direccion": "000",
+      "EstaSuscrito": true
+    },
+    "Saldo": 23600.0,
+    "Estado": true,
+    "Sucursal": null,
+    "CobroRetiro": 0.0
+  }
+]

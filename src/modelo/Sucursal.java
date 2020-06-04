@@ -1,20 +1,35 @@
 package modelo;
 
+import Gson.Serializador;
+import operacion.Operacion;
+
+import javax.swing.*;
+
 public class Sucursal {
     private String id;
     private String direccion;
     private String ciudad;
     private String nombre;
-    private Cajero[] cajero;
-    private Operacion[] operacion;
+    private static Sucursal sucursal;
 
-    public Sucursal(String id, String direccion, String ciudad, String nombre, Cajero[] cajero, Operacion[] operacion) {
-        this.id = id;
-        this.direccion = direccion;
-        this.ciudad = ciudad;
-        this.nombre = nombre;
-        this.cajero = cajero;
-        this.operacion = operacion;
+    public Sucursal() {
+
+    }
+
+    public static Sucursal getSingletonInstance() {
+        if (sucursal == null){
+            Sucursal[] sucursales = (Sucursal[]) Serializador.deserializarOP("sucursales.json", Sucursal[].class);
+            while(sucursal==null) {
+                String nombreSucursal = JOptionPane.showInputDialog("Introduzca el nombre de la sucursal actual");
+                for (int i = 0; i < sucursales.length; i++) {
+                    if (sucursales[i].getNombre().equals(nombreSucursal)) {
+                        sucursal = sucursales[i];
+                    }
+                }
+                if(sucursal==null) JOptionPane.showMessageDialog(null,"Introduzca una sucursal válida");
+            }
+        }
+        return sucursal;
     }
 
     public String getId() {
@@ -49,19 +64,4 @@ public class Sucursal {
         this.nombre = nombre;
     }
 
-    public Cajero[] getCajero() {
-        return cajero;
-    }
-
-    public void setCajero(Cajero[] cajero) {
-        this.cajero = cajero;
-    }
-
-    public Operacion[] getOperacion() {
-        return operacion;
-    }
-
-    public void setOperacion(Operacion[] operacion) {
-        this.operacion = operacion;
-    }
 }

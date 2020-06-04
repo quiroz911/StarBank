@@ -1,15 +1,16 @@
 package modelo;
 
+import operacion.Operacion;
+
 import javax.swing.*;
 import java.util.Random;
 
-public abstract class Cuenta {
+public class Cuenta {
     protected String id;
     protected Cliente cliente;
     protected double saldo;
     protected boolean estado;
     protected Sucursal sucursal;
-    protected Operacion[] operaciones;
     protected double cobroRetiro;
 
     public Cuenta(Cliente cliente, Sucursal sucursal) {
@@ -22,7 +23,11 @@ public abstract class Cuenta {
         System.out.println(this.id);
     }
 
-    public String generarId(){
+    public Cuenta() {
+
+    }
+
+    public static String generarId(){
         //Variables para Generar el ID de Forma Aleatoria
         Random aleatorio = new Random();
         String alfa = "ABCDEFGHIJKLMNOPQRSTVWXYZ";
@@ -80,13 +85,7 @@ public abstract class Cuenta {
         this.sucursal = sucursal;
     }
 
-    public Operacion[] getOperaciones() {
-        return operaciones;
-    }
 
-    public void setOperaciones(Operacion[] operaciones) {
-        this.operaciones = operaciones;
-    }
     //fin getters y setters
 
 
@@ -105,7 +104,12 @@ public abstract class Cuenta {
             return 0;
         }
         saldo = saldo - cantARetirar - cantARetirar*cobroRetiro;
+        JOptionPane.showMessageDialog(null, "Retiro exitoso");
         return cantARetirar*cobroRetiro;
+    }
+
+    public void consignar(double cantAConsignar){
+        saldo = saldo + cantAConsignar;
     }
 
     public void desactivarCuenta(boolean retirar, Cuenta cuentaStarBank){
@@ -117,6 +121,7 @@ public abstract class Cuenta {
         }
 
     }
+
 
 
 

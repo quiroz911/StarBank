@@ -1,4 +1,7 @@
-package modelo;
+package operacion;
+
+import modelo.Cuenta;
+import modelo.Sucursal;
 
 import java.time.LocalDate;
 
@@ -9,10 +12,11 @@ public class Operacion {
     Cuenta cuenta;
     Sucursal sucursal;
 
-    public Operacion(String nombreOperacion, Cuenta cuenta, Sucursal sucursal) {
+    public Operacion(String nombreOperacion, Cuenta cuenta, Sucursal sucursal, LocalDate fecha) {
         this.nombreOperacion = nombreOperacion;
         this.cuenta = cuenta;
         this.sucursal = sucursal;
+        this.fecha = fecha;
     }
 
     public String getNombreOperacion() {

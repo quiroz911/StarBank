@@ -10,6 +10,10 @@ public class CuentaAhorros extends Cuenta {
         cobroRetiro = 0.02;
     }
 
+    public CuentaAhorros() {
+        cobroRetiro = 0.02;
+    }
+
     public double getInteresMensual() {
         return interesMensual;
     }

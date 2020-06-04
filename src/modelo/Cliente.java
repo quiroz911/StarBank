@@ -1,22 +1,16 @@
 package modelo;
 
-public abstract class Cliente {
+public class Cliente {
     protected String id;
     protected String nombre;
     protected String telefono;
     protected String ocupacion;
     protected String direccion;
     protected boolean estaSuscrito;
-    protected Cuenta[] cuenta;
 
-    public Cliente(String id, String nombre, String telefono, String ocupacion, String direccion, boolean estaSuscrito, Cuenta[] cuenta) {
-        this.id = id;
-        this.nombre = nombre;
-        this.telefono = telefono;
-        this.ocupacion = ocupacion;
-        this.direccion = direccion;
-        this.estaSuscrito = estaSuscrito;
-        this.cuenta = cuenta;
+
+    public Cliente() {
+
     }
 
     public String getId() {
@@ -67,16 +61,5 @@ public abstract class Cliente {
         this.estaSuscrito = estaSuscrito;
     }
 
-    public Cuenta[] getCuenta() {
-        return cuenta;
-    }
 
-    public void setCuenta(Cuenta[] cuenta) {
-        this.cuenta = cuenta;
-    }
-
-    //Metodo para ingresar al sistema con su cuenta
-    public void autenticarse(){
-
-    }
 }

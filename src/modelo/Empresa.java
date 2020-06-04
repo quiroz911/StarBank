@@ -2,13 +2,35 @@ package modelo;
 
 public class Empresa extends Cliente{
     private String nit;
-    private String nombre;
+    private String nombreEmpresa;
     private String seccionComerial;
 
-    public Empresa(String id, String nombre, String telefono, String ocupacion, String direccion, boolean estaSuscrito, Cuenta[] cuenta, String nit, String nombre1, String seccionComerial) {
-        super(id, nombre, telefono, ocupacion, direccion, estaSuscrito, cuenta);
+
+    public Empresa() {
+
+    }
+
+    public String getNit() {
+        return nit;
+    }
+
+    public void setNit(String nit) {
         this.nit = nit;
-        this.nombre = nombre1;
+    }
+
+    public String getNombreEmpresa() {
+        return nombreEmpresa;
+    }
+
+    public void setNombreEmpresa(String nombre) {
+        this.nombreEmpresa = nombre;
+    }
+
+    public String getSeccionComerial() {
+        return seccionComerial;
+    }
+
+    public void setSeccionComerial(String seccionComerial) {
         this.seccionComerial = seccionComerial;
     }
 }
