@@ -20,6 +20,7 @@
           <Menu mnemonicParsing="false" text="Cuenta">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#abrirCrearCuenta_action" text="Crear" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirActivacionesCuenta_action" text="Activaciones" />
             </items>
           </Menu>
         </menus>

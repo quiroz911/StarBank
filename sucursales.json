@@ -1,0 +1,16 @@
+[
+  {
+    "Id" : "pk911",
+    "Direccion" : "calle 70 No. 52 - 21",
+    "Ciudad" : "Medellín",
+    "Nombre" : "udea",
+    "Sucursal" : null
+  },
+  {
+    "Id" : "rn876",
+    "Direccion" : "carrera 65 Nro. 59A - 110",
+    "Ciudad" : "Medellín",
+    "Nombre" : "nacional",
+    "Sucursal" : null
+  }
+]

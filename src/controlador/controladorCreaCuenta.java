@@ -7,10 +7,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import modelo.Cajero;
-import modelo.Cuenta;
-import modelo.CuentaAhorros;
-import modelo.CuentaCorriente;
+import modelo.*;
+import operacion.CreacionCuenta;
+
+import javax.swing.*;
+import java.time.LocalDate;
 
 public class controladorCreaCuenta {
 
@@ -50,12 +51,20 @@ public class controladorCreaCuenta {
             cuentaAhorros.setSaldo(20000);
             cuentaAhorros.setEstado(true);
             cuentaAhorros.setId(labelCodigo.getText());
+            cuentaAhorros.setSucursal(Sucursal.getSingletonInstance());
 
             //el cajero es el encargado de crear cuentas
             cajero.crearCuenta(cuentaAhorros);
 
+            //le imprime el id de la cuenta por pantalla al usuario
+            JOptionPane.showMessageDialog(null, "El id de su cuenta es: " + labelCodigo.getText());
+
             //se limpian los campos
             btnLimpiarRegistro_action(actionEvent);
+
+            //Se registra la operacion dentro del json de operaciones
+            CreacionCuenta creacionCuenta = new CreacionCuenta("creacionCuenta",cuentaAhorros, Sucursal.getSingletonInstance(), LocalDate.now());
+            Serializador.serializarOP(creacionCuenta, "operaciones.json");
         }
         else{
             CuentaCorriente cuentaCorriente = new CuentaCorriente();
@@ -64,12 +73,22 @@ public class controladorCreaCuenta {
             cuentaCorriente.setSaldo(20000);
             cuentaCorriente.setEstado(true);
             cuentaCorriente.setId(labelCodigo.getText());
+            cuentaCorriente.setSucursal(Sucursal.getSingletonInstance());
 
             //el cajero es el encargado de crear cuentas
             cajero.crearCuenta(cuentaCorriente);
 
+            //le imprime el id de la cuenta por pantalla al usuario
+            JOptionPane.showMessageDialog(null, "El id de su cuenta es: " + labelCodigo.getText());
+
             //se limpian los campos
             btnLimpiarRegistro_action(actionEvent);
+
+            //Se registra la operacion dentro del json de operaciones
+            CreacionCuenta creacionCuenta = new CreacionCuenta("creacionCuenta",cuentaCorriente, Sucursal.getSingletonInstance(), LocalDate.now());
+            Serializador.serializarOP(creacionCuenta, "operaciones.json");
         }
+
+
     }
 }

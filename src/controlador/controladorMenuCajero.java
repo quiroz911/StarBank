@@ -35,4 +35,13 @@ public class controladorMenuCajero {
             e.printStackTrace();
         }
     }
+
+    public void abrirActivacionesCuenta_action(ActionEvent actionEvent) throws IOException{
+        try {
+            AnchorPane activacionCuenta = FXMLLoader.load(getClass().getResource("/vista/activacionCuenta.fxml"));
+            menu.setCenter(activacionCuenta);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

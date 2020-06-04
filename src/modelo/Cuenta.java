@@ -1,5 +1,7 @@
 package modelo;
 
+import operacion.Operacion;
+
 import javax.swing.*;
 import java.util.Random;
 
@@ -9,7 +11,6 @@ public class Cuenta {
     protected double saldo;
     protected boolean estado;
     protected Sucursal sucursal;
-    protected Operacion[] operaciones;
     protected double cobroRetiro;
 
     public Cuenta(Cliente cliente, Sucursal sucursal) {
@@ -84,13 +85,7 @@ public class Cuenta {
         this.sucursal = sucursal;
     }
 
-    public Operacion[] getOperaciones() {
-        return operaciones;
-    }
 
-    public void setOperaciones(Operacion[] operaciones) {
-        this.operaciones = operaciones;
-    }
     //fin getters y setters
 
 
@@ -109,7 +104,7 @@ public class Cuenta {
             return 0;
         }
         saldo = saldo - cantARetirar - cantARetirar*cobroRetiro;
-        JOptionPane.showMessageDialog(null, "retiro exitoso");
+        JOptionPane.showMessageDialog(null, "Retiro exitoso");
         return cantARetirar*cobroRetiro;
     }
 

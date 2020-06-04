@@ -1,13 +1,9 @@
 package controlador;
 
-import Gson.Serializador;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import modelo.Cajero;
-import modelo.Cliente;
-import modelo.Empresa;
-import modelo.PersonaNatural;
+import modelo.*;
 
 import javax.swing.*;
 
